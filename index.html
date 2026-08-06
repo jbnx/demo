@@ -3,17 +3,198 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>demo.jbnx.io — scaffolding</title>
-  <style>
-    body { margin: 0; min-height: 100vh; display: grid; place-items: center;
-      font-family: Georgia, serif; background: #1a1f1c; color: #e8efe6; }
-    p { opacity: .7; }
-  </style>
+  <meta name="description" content="John Doe — private-client real estate for estates, waterfront, and architectural homes. Fictional research demo at demo.jbnx.io.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="John Doe · Private Client Realty">
+  <meta property="og:description" content="Discreet representation for buyers and sellers of exceptional homes.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://demo.jbnx.io/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2312161a'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia' font-size='14' fill='%23a8895a'%3EJD%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;0,700;1,500&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <title>John Doe · Private Client Realty</title>
 </head>
 <body>
-  <main>
-    <h1>demo.jbnx.io</h1>
-    <p>Scaffolding — John Doe Realty site coming next.</p>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <a class="logo" href="#top" aria-label="John Doe home">
+      <span class="logo-mark">JD</span>
+      <span class="logo-text">John Doe</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#approach">Approach</a>
+      <a href="#estates">Estates</a>
+      <a href="#areas">Areas</a>
+      <a href="#contact" class="nav-cta">Private consult</a>
+    </nav>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" data-nav-toggle>
+      <span class="sr-only">Menu</span>
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <div class="mobile-nav" id="mobile-nav" data-mobile-nav hidden>
+    <a href="#approach">Approach</a>
+    <a href="#estates">Estates</a>
+    <a href="#areas">Areas</a>
+    <a href="#contact">Private consult</a>
+  </div>
+
+  <main id="main">
+    <section class="hero" id="top" aria-label="Introduction">
+      <div class="hero-media" aria-hidden="true">
+        <img
+          src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=2400&q=80"
+          alt=""
+          width="2400"
+          height="1600"
+          fetchpriority="high">
+        <div class="hero-veil"></div>
+      </div>
+      <div class="hero-copy">
+        <p class="brand-lockup">John Doe</p>
+        <p class="brand-sub">Private Client Realty</p>
+        <h1>Homes chosen with the calm of a private advisor.</h1>
+        <p class="lede">Discreet representation for buyers and sellers of estates, waterfront, and architectural residences — from first viewing to quiet close.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Request a private consult</a>
+          <a class="btn btn-ghost" href="#estates">View selected estates</a>
+        </div>
+      </div>
+      <div class="hero-scroll" aria-hidden="true">
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <section class="section approach" id="approach">
+      <div class="section-inner">
+        <p class="eyebrow">The approach</p>
+        <h2>Fewer listings. Deeper counsel.</h2>
+        <p class="section-lede">John works with a deliberately small book of clients so every search, negotiation, and staging decision gets senior attention — not a rotation of junior agents.</p>
+        <ul class="pillars">
+          <li class="reveal">
+            <h3>Private search</h3>
+            <p>Off-market introductions and quiet outreach before a home ever hits the open web.</p>
+          </li>
+          <li class="reveal">
+            <h3>Estate staging</h3>
+            <p>Presentation that reads as editorial, not inventory — light, landscape, and finish first.</p>
+          </li>
+          <li class="reveal">
+            <h3>Exact negotiation</h3>
+            <p>Terms crafted for lifestyle fit and downside protection, not just the loudest offer.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section estates" id="estates">
+      <div class="section-inner">
+        <p class="eyebrow">Selected estates</p>
+        <h2>A short list of the exceptional.</h2>
+        <p class="section-lede">Fictional properties for this research demo — the kind of inventory John would represent.</p>
+
+        <article class="estate estate-feature reveal">
+          <figure class="estate-media">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1800&q=80" alt="Modern glass estate overlooking a dusk hillside" width="1800" height="1200" loading="lazy">
+          </figure>
+          <div class="estate-copy">
+            <p class="estate-meta">Belvedere Ridge · Off-market</p>
+            <h3>The Ridge Pavilion</h3>
+            <p>Seven thousand square feet of glass, oak, and silence — oriented to sunset over the valley.</p>
+            <p class="estate-price">$6,450,000</p>
+          </div>
+        </article>
+
+        <div class="estate-grid">
+          <article class="estate reveal">
+            <figure class="estate-media">
+              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80" alt="White contemporary villa with pool at twilight" width="1400" height="933" loading="lazy">
+            </figure>
+            <div class="estate-copy">
+              <p class="estate-meta">Harbor Line · Coming soon</p>
+              <h3>Casa del Quay</h3>
+              <p>Waterfront villa with a private dock and a kitchen built for long dinners.</p>
+              <p class="estate-price">$4,200,000</p>
+            </div>
+          </article>
+          <article class="estate reveal">
+            <figure class="estate-media">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80" alt="Stone and timber residence with landscaped courtyard" width="1400" height="933" loading="lazy">
+            </figure>
+            <div class="estate-copy">
+              <p class="estate-meta">Old Mill District · Represented</p>
+              <h3>Millwright Residence</h3>
+              <p>Restored brick and new steel — courtyard living three blocks from the riverwalk.</p>
+              <p class="estate-price">$2,875,000</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section areas" id="areas">
+      <div class="section-inner areas-inner">
+        <div class="areas-copy">
+          <p class="eyebrow">Service areas</p>
+          <h2>Where John works.</h2>
+          <p class="section-lede">Focused coverage across the coast and the ridge — markets where discretion and local relationships still decide who sees a home first.</p>
+        </div>
+        <ul class="area-list">
+          <li class="reveal"><span>Belvedere Ridge</span><em>Estates &amp; view parcels</em></li>
+          <li class="reveal"><span>Harbor Line</span><em>Waterfront &amp; docks</em></li>
+          <li class="reveal"><span>Old Mill District</span><em>Architectural renovations</em></li>
+          <li class="reveal"><span>North Orchard</span><em>Family compounds</em></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="section-inner contact-inner">
+        <p class="eyebrow">Private consult</p>
+        <h2>Tell John what you’re looking for.</h2>
+        <p class="section-lede">This is a fictional research site — the form does not send anywhere. In a real engagement, replies would arrive within one business day.</p>
+
+        <form class="consult-form reveal" name="consult" action="#" method="post" onsubmit="return false;">
+          <label>
+            <span>Name</span>
+            <input type="text" name="name" autocomplete="name" placeholder="Alex Morgan" required>
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" autocomplete="email" placeholder="alex@example.com" required>
+          </label>
+          <label class="full">
+            <span>What are you exploring?</span>
+            <textarea name="message" rows="4" placeholder="Buying a quiet waterfront home under $5M this fall…" required></textarea>
+          </label>
+          <div class="form-actions full">
+            <button class="btn btn-primary" type="submit" data-form-submit>Send inquiry</button>
+            <p class="form-note" data-form-note hidden>Thank you — in a live site, John would reply personally. (Demo only.)</p>
+          </div>
+        </form>
+
+        <aside class="contact-aside reveal">
+          <p class="contact-name">John Doe</p>
+          <p>Private Client Realty</p>
+          <a href="tel:+15550148820">(555) 014-8820</a>
+          <a href="mailto:john.doe@example.com">john.doe@example.com</a>
+          <p class="license">Licensed Real Estate Broker · License #RE-0000000 (fictional)</p>
+        </aside>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p><strong>John Doe</strong> · Private Client Realty</p>
+      <p class="footer-meta">Fictional demo for AI cost research · <a href="https://projects.jbnx.io/#/p/demo">demo project</a> · demo.jbnx.io</p>
+    </div>
+  </footer>
+
+  <script src="main.js" defer></script>
 </body>
 </html>
