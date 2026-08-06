@@ -1,6 +1,6 @@
 # demo.jbnx.io — AI cost research
 
-Research project: measure the real cost (billable AI hours + tokens) of standing up a **plain website from scratch** with AI.
+Research project: measure the real cost (studio credits + tokens) of standing up a **plain website from scratch** with AI.
 
 | | |
 |---|---|
@@ -11,10 +11,10 @@ Research project: measure the real cost (billable AI hours + tokens) of standing
 
 ## Method
 
-1. Claim `demo` → one billable session opens (bill.jbnx.io via portal).
+1. Claim `demo` → one billable session opens (bill.jbnx.io via portal; 100 credits = 1 hour).
 2. Complete one major task.
 3. Record token usage → status/close-out with customer-facing `--done` → **release** (stops the clock).
-4. Repeat per major task so each shows separately in billables.
+4. Repeat per major task so each shows separately as studio credits.
 
 ## Stack
 
