@@ -1,0 +1,30 @@
+# Secret scanning — SOC 2 CC6.7 / CC7.1.
+# Added 2026-08-12 during the SOC 2 remediation pass. Before this, gitleaks ran
+# on 1 of 18 repositories.
+#
+# fetch-depth: 0 is deliberate — a credential removed in a later commit is still
+# live until it is rotated, so history has to be scanned, not just the tip.
+# Action versions are pinned to commit SHAs so a moved tag cannot alter the build.
+name: security-scan
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  gitleaks:
+    name: gitleaks (secret scan)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@e0c47f4f8be36e29cdc102c57e68cb5cbf0e8d1e # v3.0.0
