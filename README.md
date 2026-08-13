@@ -1,33 +1,23 @@
-# demo.jbnx.io — AI cost research
+# demo.jbnx.io
 
-Research project: measure the real cost (studio credits + tokens) of standing up a **plain website from scratch** with AI.
+Fictional premier real-estate landing page (John Doe Private Client Realty) used for AI cost research.
 
-| | |
-|---|---|
-| **Live** | https://demo.jbnx.io |
-| **Portal** | https://projects.jbnx.io/#/p/demo |
-| **Slug** | `demo` |
-| **Subject** | Fictional premier real-estate agent — John Doe |
+**Live:** https://demo.jbnx.io  
+**Billables:** https://bill.jbnx.io/public/demo  
+**Portal:** https://projects.jbnx.io/#/p/demo
 
-## Method
+## Layout
 
-1. Claim `demo` → one billable session opens (bill.jbnx.io via portal; 100 credits = 1 hour).
-2. Complete one major task.
-3. Record token usage → status/close-out with customer-facing `--done` → **release** (stops the clock).
-4. Repeat per major task so each shows separately as studio credits.
-
-## Stack
-
-Flat static site (HTML/CSS/JS) → GitHub Pages → Cloudflare DNS (`demo.jbnx.io`).
-
-## Agent loop
+- `site/` — **only** directory published to GitHub Pages (HTML/CSS/JS, self-hosted fonts & images, `CNAME`)
+- `scripts/`, `docs/`, `.github/`, this README — stay in the repo; **not** on the demo origin
 
 ```bash
-./scripts/agent.sh sign-in
-./scripts/agent.sh claim demo "what you'll do"
-./scripts/agent.sh boot
-# work…
-./scripts/agent.sh usage --engine cursor --model <model> --in <n> --out <n>
-./scripts/agent.sh status --done "…" --state "…" --next "…"
-./scripts/agent.sh release "done"
+cd site && python3 -m http.server 8899
 ```
+
+## Security notes
+
+- Pages artifact is an allowlist (`path: site`), not the repo root
+- Contact form is inert (client `preventDefault` only; no backend)
+- `robots` is `noindex,nofollow`
+- Browser security headers are applied at Cloudflare for `demo.jbnx.io`
