@@ -27,4 +27,34 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
-      - uses: gitleaks/gitleaks-action@e0c47f4f8be36e29cdc102c57e68cb5cbf0e8d1e # v3.0.0
+      # gitleaks-action is commercial: private-repo pull_request jobs exit in
+      # seconds without GITLEAKS_LICENSE (not in portal creds). The OSS CLI is
+      # the same scanner, needs no license, and still fails the job on leaks.
+      - name: Install gitleaks OSS CLI
+        env:
+          GITLEAKS_VERSION: "8.30.1"
+          GITLEAKS_SHA256: "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb"
+        run: |
+          set -euo pipefail
+          curl -fsSL "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" -o /tmp/gitleaks.tgz
+          echo "${GITLEAKS_SHA256}  /tmp/gitleaks.tgz" | sha256sum -c -
+          tar -xzf /tmp/gitleaks.tgz -C /usr/local/bin gitleaks
+          gitleaks version
+      - name: Run gitleaks
+        run: |
+          set -euo pipefail
+          EVENT="${{ github.event_name }}"
+          if [ "$EVENT" = "pull_request" ]; then
+            gitleaks detect --source . --verbose --redact --exit-code 1 \
+              --log-opts="--no-merges --first-parent ${{ github.event.pull_request.base.sha }}..${{ github.sha }}"
+          elif [ "$EVENT" = "push" ]; then
+            BEFORE="${{ github.event.before }}"
+            if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+              gitleaks detect --source . --verbose --redact --exit-code 1 --log-opts="-1"
+            else
+              gitleaks detect --source . --verbose --redact --exit-code 1 \
+                --log-opts="--no-merges --first-parent ${BEFORE}..${{ github.sha }}"
+            fi
+          else
+            gitleaks detect --source . --verbose --redact --exit-code 1
+          fi
